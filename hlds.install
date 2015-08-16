@@ -1,0 +1,11 @@
+pkgname=hlds
+
+post_install() {
+  useradd hlds
+  echo "Configure the server using '/etc/conf.d/hld's and then launch it via 'systemctl start hlds'. Before that, add the user 'hlds' and 'chown -R hlds:hlds /opt/hlds'"
+}
+
+pre_remove() {
+  userdel hlds
+} >/dev/null 2>&1
+
